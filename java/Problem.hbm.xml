@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.analytics.spoj.entity.Problem" table="problem">
+		<meta attribute="class-description">
+			This class contains the problem details from www.spoj.com
+		</meta>
+		<id name="code" type="string" column="code">
+		</id>
+		<property name="title" column="title" type="string" />
+		<property name="solvedByCount" column="solved_by_count" type="integer" />
+		<property name="accuracy" column="accuracy" type="double" />
+	</class>
+</hibernate-mapping>

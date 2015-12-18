@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.analytics.spoj.entity.User" table="user">
+		<meta attribute="class-description">
+			This class contains the user detail from www.spoj.com
+		</meta>
+		<id name="username" type="string" column="username">
+		</id>
+		<property name="name" column="name" type="string" />
+		<property name="country" column="country" type="string" />
+		<property name="institution" column="institution" type="string" />
+		<property name="rank" column="rank" type="integer" />
+
+		<property name="classicalSolvedCount" column="classical_solved_count" type="integer" />
+		<property name="classicalScore" column="classical_score" type="double" />
+		
+		<property name="challengeSolvedCount" column="challenge_solved_count" type="integer" />
+		<property name="challengeScore" column="challenge_score" type="double" />
+		
+		<set name="classicalProblemsSolved" table="user_problem_mapping" cascade="all">
+            <key column="username" />
+            <many-to-many column="code"  class="com.analytics.spoj.entity.Problem" />
+        </set>
+	
+	</class>
+</hibernate-mapping>
